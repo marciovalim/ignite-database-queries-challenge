@@ -1,28 +1,28 @@
 import {
-  Column,
-  CreateDateColumn,
-  Entity,
-  ManyToMany,
-  PrimaryGeneratedColumn,
-  UpdateDateColumn,
+	Column,
+	CreateDateColumn,
+	Entity,
+	ManyToMany,
+	PrimaryGeneratedColumn,
+	UpdateDateColumn,
 } from 'typeorm';
 
 import { User } from '../../users/entities/User';
 
 @Entity('games')
 export class Game {
-  @PrimaryGeneratedColumn('uuid')
+	@PrimaryGeneratedColumn('uuid')
   id: string;
 
-  @Column()
+	@Column()
   title: string;
 
-  @ManyToMany(() => User, (user) => user.games)
+	@ManyToMany(() => User, (user) => user.games)
   users: User[];
 
-  @CreateDateColumn()
+	@CreateDateColumn()
   created_at: Date;
 
-  @UpdateDateColumn()
+	@UpdateDateColumn()
   updated_at: Date;
 }
